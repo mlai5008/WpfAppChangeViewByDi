@@ -1,0 +1,20 @@
+﻿<UserControl
+    x:Class="AppWpfWcl.Views.LogOutView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AppWpfWcl.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="600"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+    <Grid Background="LightSlateGray">
+        <Button
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Command="{Binding DataContext.LogOutCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"
+            Content="Log out"
+            FontSize="16"
+            FontWeight="Bold" />
+    </Grid>
+</UserControl>

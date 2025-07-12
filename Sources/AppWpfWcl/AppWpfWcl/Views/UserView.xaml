@@ -1,0 +1,35 @@
+﻿<UserControl
+    x:Class="AppWpfWcl.Views.UserView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AppWpfWcl.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid Background="LightSlateGray">
+        <StackPanel Margin="20">
+            <StackPanel Margin="8" Orientation="Horizontal">
+                <Label Content="ID:" Foreground="Yellow" />
+                <Label Content="{Binding Id}" Foreground="LightYellow" />
+            </StackPanel>
+            <StackPanel Margin="8" Orientation="Horizontal">
+                <Label Content="First Name:" Foreground="Yellow" />
+                <Label Content="{Binding FirstName}" Foreground="LightYellow" />
+            </StackPanel>
+            <StackPanel Margin="8" Orientation="Horizontal">
+                <Label Content="Last Name:" Foreground="Yellow" />
+                <Label Content="{Binding LastName}" Foreground="LightYellow" />
+            </StackPanel>
+            <StackPanel Margin="8" Orientation="Horizontal">
+                <Label Content="Email:" Foreground="Yellow" />
+                <Label Content="{Binding Email}" Foreground="LightYellow" />
+            </StackPanel>
+            <StackPanel Margin="8" Orientation="Horizontal">
+                <Label Content="Phone:" Foreground="Yellow" />
+                <Label Content="{Binding Phone}" Foreground="LightYellow" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

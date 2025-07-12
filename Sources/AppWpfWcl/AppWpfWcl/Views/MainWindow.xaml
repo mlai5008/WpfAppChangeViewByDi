@@ -1,0 +1,77 @@
+﻿<Window
+    x:Class="AppWpfWcl.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AppWpfWcl.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="WPF App"
+    Width="1200"
+    Height="700"
+    MinWidth="600"
+    MinHeight="500"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="BaseStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="LoadingGridKey" TargetType="Grid">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding ElementName=LoadingGrid, Path=IsEnabled}" Value="False">
+                        <Setter Property="Opacity" Value="0.4" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid
+            x:Name="LoadingGrid"
+            IsEnabled="{Binding IsLoading}"
+            Style="{StaticResource LoadingGridKey}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <WrapPanel Grid.ColumnSpan="2">
+                <Button Command="{Binding NavigationToAuthorizationViewCommand}" Content="To View 1" />
+                <Button Command="{Binding NavigationToDeveloperViewCommand}" Content="To View 2" />
+                <Button Command="{Binding AsyncCommand}" Content="AsyncCommand" />
+                <Button Content="Button №4" />
+                <Button Content="Button №5" />
+                <Button Content="Button №6" />
+                <Button Content="Button №7" />
+            </WrapPanel>
+            <ContentControl
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="6"
+                Content="{Binding AuthorizationView, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <ContentControl
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="6"
+                Content="{Binding LoginView}" />
+        </Grid>
+        <Border
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Visibility="{Binding LoadingVisibility}">
+            <StackPanel Background="White">
+                <Viewbox Height="100" Stretch="Uniform">
+                    <local:LoadingView />
+                </Viewbox>
+                <TextBlock
+                    Margin="10"
+                    FontSize="40"
+                    Text="LOADING..." />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
